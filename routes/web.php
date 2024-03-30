@@ -18,3 +18,11 @@ Route::get('/', function () {
     return view('backend.dashboard');
 });
 Route::get('/add-product',[ProductController::class,"addProductUrl"]);
+Route::post('/add-product',[ProductController::class,'addProduct']);
+Route::get('/view-product',[ProductController::class,'viewProductUrl']);
+Route::get('/edit-product/{id}',[ProductController::class,'editProductUrl']);
+Route::post('/update-product',[ProductController::class,'updateProduct']);
+Route::get('/delete-product/{id}',[ProductController::class,'deleteProduct']);
+Route::get('/deleted-product',[ProductController::class,'deletedDataView']);
+Route::get('/restore-product/{id}',[ProductController::class,'restoreData']);
+Route::get('/pdelete-product/{id}',[ProductController::class,'pdelete']);
