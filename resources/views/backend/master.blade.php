@@ -721,7 +721,6 @@
         .apexcharts-rangebar-goals-markers {
             pointer-events: none
         }
-
     </style>
 </head>
 
@@ -897,7 +896,8 @@
 
                 <li class="nav-item dropdown pe-3">
 
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
+                        data-bs-toggle="dropdown">
                         <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
                         <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
                     </a><!-- End Profile Iamge Icon -->
@@ -942,10 +942,15 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Sign Out</span>
+                            <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                <i class="bi bi-box-arrow-right"></i> {{ __('Logout') }}
                             </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </li>
 
                     </ul><!-- End Profile Dropdown Items -->
@@ -969,7 +974,8 @@
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse"
+                    href="#">
                     <i class="bi bi-menu-button-wide"></i><span>Products</span><i
                         class="bi bi-chevron-down ms-auto"></i>
                 </a>
@@ -984,11 +990,6 @@
                             <i class="bi bi-circle"></i><span>View Product</span>
                         </a>
                     </li>
-                    {{-- <li>
-                        <a href="{{ url('/edit-product') }}">
-                            <i class="bi bi-circle"></i><span>Edit Product</span>
-                        </a>
-                    </li> --}}
                     <li>
                         <a href="{{ url('/deleted-product') }}">
                             <i class="bi bi-circle"></i><span>View Deleted Product</span>
@@ -1007,21 +1008,6 @@
                             <i class="bi bi-circle"></i><span>Form Elements</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="forms-layouts.html">
-                            <i class="bi bi-circle"></i><span>Form Layouts</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="forms-editors.html">
-                            <i class="bi bi-circle"></i><span>Form Editors</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="forms-validation.html">
-                            <i class="bi bi-circle"></i><span>Form Validation</span>
-                        </a>
-                    </li>
                 </ul>
             </li><!-- End Forms Nav -->
 
@@ -1034,11 +1020,6 @@
                     <li>
                         <a href="tables-general.html">
                             <i class="bi bi-circle"></i><span>General Tables</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tables-data.html">
-                            <i class="bi bi-circle"></i><span>Data Tables</span>
                         </a>
                     </li>
                 </ul>
@@ -1054,16 +1035,7 @@
                             <i class="bi bi-circle"></i><span>Chart.js</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="charts-apexcharts.html">
-                            <i class="bi bi-circle"></i><span>ApexCharts</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="charts-echarts.html">
-                            <i class="bi bi-circle"></i><span>ECharts</span>
-                        </a>
-                    </li>
+
                 </ul>
             </li><!-- End Charts Nav -->
 
@@ -1077,16 +1049,6 @@
                             <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="icons-remix.html">
-                            <i class="bi bi-circle"></i><span>Remix Icons</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="icons-boxicons.html">
-                            <i class="bi bi-circle"></i><span>Boxicons</span>
-                        </a>
-                    </li>
                 </ul>
             </li><!-- End Icons Nav -->
 
@@ -1098,55 +1060,12 @@
                     <span>Profile</span>
                 </a>
             </li><!-- End Profile Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-faq.html">
-                    <i class="bi bi-question-circle"></i>
-                    <span>F.A.Q</span>
-                </a>
-            </li><!-- End F.A.Q Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-contact.html">
-                    <i class="bi bi-envelope"></i>
-                    <span>Contact</span>
-                </a>
-            </li><!-- End Contact Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-register.html">
-                    <i class="bi bi-card-list"></i>
-                    <span>Register</span>
-                </a>
-            </li><!-- End Register Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-login.html">
-                    <i class="bi bi-box-arrow-in-right"></i>
-                    <span>Login</span>
-                </a>
-            </li><!-- End Login Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-error-404.html">
-                    <i class="bi bi-dash-circle"></i>
-                    <span>Error 404</span>
-                </a>
-            </li><!-- End Error 404 Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-blank.html">
-                    <i class="bi bi-file-earmark"></i>
-                    <span>Blank</span>
-                </a>
-            </li><!-- End Blank Page Nav -->
-
         </ul>
 
     </aside>
     <!-- End Sidebar-->
-<main id="main" class="main">
-    @yield('content')
+    <main id="main" class="main">
+        @yield('content')
     </main>
     <!-- End #main -->
 
@@ -1174,7 +1093,7 @@
     <script src="{{ url('/') }}/assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ url('/') }}/assets/js/main.js"></script>
 
 
 
